@@ -34,10 +34,12 @@
 -(void)popViewControllerAnimated:(BOOL)animated afterwards:(void (^)(void))afterwards {
   
     id navigationController = [self rootViewController];
+    int64_t delay = 0;
     
     // if ([[self topViewController] conformsToProtocol:@protocol(ModalPopoverViewControllerParent)]) {
     //     [(id <ModalPopoverViewControllerParent>)[self topViewController] dismissModalPopoverViewControllerAnimated:animated];
-    //     [self performBlock:afterwards afterDelay:kModalTransitionDuration];
+    //     delay = (int64_t)(1.0e9 * kModalTransitionDuration);
+    //     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), dispatch_get_main_queue(), afterwards);
     //     return;
     // }
     
@@ -45,12 +47,14 @@
     // intelligently pop modally presenting controllers.
     if ([[self topViewController] respondsToSelector:@selector(presentsAsModal)]) {
         [[self topViewController].parentViewController dismissModalViewControllerAnimated:animated];
-        [self performBlock:afterwards afterDelay:kModalTransitionDuration];
+        delay = (int64_t)(1.0e9 * kModalTransitionDuration);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), dispatch_get_main_queue(), afterwards);
         return;
     }
     if ([navigationController isKindOfClass:[UINavigationController class]]) {
         [(UINavigationController*)navigationController popViewControllerAnimated:animated];
-        [self performBlock:afterwards afterDelay:kHorizontalSlideAnimationDuration];
+        delay = (int64_t)(1.0e9 * kHorizontalSlideAnimationDuration);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), dispatch_get_main_queue(), afterwards);
     }
 }
 
