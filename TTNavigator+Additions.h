@@ -9,7 +9,7 @@
 -(void)popToRootViewControllerAnimated:(BOOL)animated;
 -(void)popToRootViewControllerAnimated:(BOOL)animated thenOpenURLAction:(TTURLAction*)action;
 -(void)popViewControllerAnimated:(BOOL)animated;
--(void)popViewControllerAnimated:(BOOL)animated afterwards:(Block)afterwards;
+-(void)popViewControllerAnimated:(BOOL)animated afterwards:(void (^)(void))afterwards;
 -(void)popToRootViewControllerThenOpenURLs:(NSArray*)URLs;
 -(void)clearRootViewControllerThenOpenURLAction:(TTURLAction*)action;
 -(void)clearRootViewControllerThenOpenURLAction:(TTURLAction*)action afterDelay:(CGFloat)delay;
