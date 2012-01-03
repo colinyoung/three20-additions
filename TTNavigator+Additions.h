@@ -33,3 +33,10 @@
 
 // Private
 -(void)timedOpenURLAction:(NSTimer *)timer;
+
+/* Fix a warning. This is a private method in TTURLNavigationPattern. */
+@interface TTURLMap (CBAdditions)
+
+-(TTURLNavigatorPattern*)matchObjectPattern:(NSURL*)URL;
+
+@end
