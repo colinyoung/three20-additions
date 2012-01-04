@@ -8,5 +8,5 @@ Usage
 - Add the files to your project somewhere.
 - Add this line to your Prefix header:
 
-    #import "Three20Additions.h"
+    `#import "Three20Additions.h"`
 
