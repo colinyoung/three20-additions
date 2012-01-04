@@ -9,4 +9,17 @@ Usage
 - Add this line to your Prefix header:
 
     `#import "Three20Additions.h"`
+    
+Default categories
+-----
 
+Categories on the following classes are included in the Three20Additions.h file, but of course you can use as many/few as you prefer:
+
+* `TTNavigator`
+* `TTMessageController`
+* `TTTextEditor`
+
+Optional categories
+-----
+
+* `TTTableViewController+Accessible.h`: Makes rows in TTTableViewControllers [accessible](http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html)

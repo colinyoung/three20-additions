@@ -2,3 +2,4 @@
 
 #import "TTMessageController+Additions.h"
 #import "TTNavigator+Additions.h"
+#import "TTTextEditor+Additions.h"
