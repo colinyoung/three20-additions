@@ -1,3 +1,5 @@
+@interface TTNavigator (Additions)
+
 /* A group of additions to TTNavigator to provide for Back button functionality,
   dismissal of modal view controllers, and more */
 
@@ -33,6 +35,8 @@
 
 // Private
 -(void)timedOpenURLAction:(NSTimer *)timer;
+
+@end
 
 /* Fix a warning. This is a private method in TTURLNavigationPattern. */
 @interface TTURLMap (CBAdditions)
